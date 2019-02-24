@@ -5,10 +5,10 @@ from django.forms import ModelForm
 #from django.utils.translation import ugettext_lazy as _
 #from reversion import revisions as reversion
 #from reversion.admin import VersionAdmin
+#from reversion.models import Revision
 #from django.contrib import admin
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from reversion.models import Revision
 import allauth
 
 # Create your models here.
