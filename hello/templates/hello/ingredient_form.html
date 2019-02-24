@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+
 {% block content %}
+    <script>
+      // Calculate energy on click
+      $(document).ready(  function(){
+        $("input[type='number']").change( function(){
+	  // Carbs have energy 17 and polyols have energy 10, but form part of carbs,
+	  //so subtract 7*polyols from carb energy.
+          var energy =    $('#id_fat'    ).val()*37.0
+			+ $('#id_carbs'  ).val()*17.0
+			- $('#id_polyols').val()* 7.0
+			+ $('#id_protein').val()*17.0
+			+ $('#id_orgacid').val()*13.0
+			+ $('#id_fibre'  ).val()* 8.0;
+          $('#id_energy').val(energy);
+        });
+      });
+    </script>
 <div class="container">
 
 <h1><a href=/>Back to main page</a></h1>
@@ -72,6 +89,10 @@
       <tr class="fieldWrapper">
         <th>{{ form.orgacid.label_tag }}</th>
         <td>{{ form.orgacid }}{{ form.orgacid.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.energy.label_tag }}</th>
+        <td>{{ form.energy }}{{ form.energy.errors }}</td>
       </tr>
     </table>
     <input type="submit" name="update" value="Update">
