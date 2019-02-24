@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+	<h1><a href=/>Back to main page</a></h1>
+	<h2>{{ ingredient.name }}</h2>
+	<h3>{{ ingredient.description }}</h2>
+	<h3>{{ ingredient.vendor }}</h3>
+	<h4><a href="/ingredient/{{ingredient.id}}/edit">Edit ingredient details</a></h4>
+	<h4 style="color:red"><a href="/ingredient/{{ingredient.id}}/delete">Delete ingredient</a></h4>
+	<table>
+	  <tr><td style="padding-right: 0.2em">Vendor             </td><td>{{ ingredient.vendor    }} </td></tr>
+	  <tr><td>Moisture           </td><td>{{ ingredient.moisture  }} </td></tr>
+	  <tr><td>Fat                </td><td>{{ ingredient.fat       }} </td></tr>
+	  <tr><td>Saturated fat      </td><td>{{ ingredient.satfat    }} </td></tr>
+	  <tr><td style="padding-right: 0.2em">Monounsaurated fat </td><td>{{ ingredient.monounsat }} </td></tr>
+	  <tr><td>Polyunsaurated fat </td><td>{{ ingredient.polyunsat }} </td></tr>
+	  <tr><td>Carbohydrates      </td><td>{{ ingredient.carbs     }} </td></tr>
+	  <tr><td>Sugar              </td><td>{{ ingredient.sugar     }} </td></tr>
+	  <tr><td>Polyols            </td><td>{{ ingredient.polyols   }} </td></tr>
+	  <tr><td>Starch             </td><td>{{ ingredient.starch    }} </td></tr>
+	  <tr><td>Fibre              </td><td>{{ ingredient.fibre     }} </td></tr>
+	  <tr><td>Protein            </td><td>{{ ingredient.protein   }} </td></tr>
+	  <tr><td>Salt               </td><td>{{ ingredient.salt      }} </td></tr>
+	  <tr><td>Organic acids      </td><td>{{ ingredient.orgacid   }} </td></tr>
+	</table>
+</div>
+{% endblock %}

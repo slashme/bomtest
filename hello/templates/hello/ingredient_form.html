@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container">
+
+<h1><a href=/>Back to main page</a></h1>
+<h2>Update ingredient</h2>
+<h4 style="color:red"><a href="/ingredient/{{ingredient.id}}/delete">Delete ingredient</a></h4>
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      <tr class="fieldWrapper">
+        <th>{{ form.name.label_tag }}</th>
+        <td colspan="2">{{ form.name }}{{ form.name.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.description.label_tag }}</th>
+        <td colspan="2">{{ form.description }}{{ form.description.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.vendor.label_tag }}</th>
+        <td colspan="2">{{ form.vendor }}{{ form.vendor.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.moisture.label_tag }}</th>
+        <td colspan="2">{{ form.moisture }}{{ form.moisture.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.fat.label_tag }}</th>
+        <td>{{ form.fat }}{{ form.fat.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.satfat.label_tag }}</th>
+        <td>{{ form.satfat }}{{ form.satfat.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.monounsat.label_tag }}</th>
+        <td>{{ form.monounsat }}{{ form.monounsat.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.polyunsat.label_tag }}</th>
+        <td>{{ form.polyunsat }}{{ form.polyunsat.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.carbs.label_tag }}</th>
+        <td>{{ form.carbs }}{{ form.carbs.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.sugar.label_tag }}</th>
+        <td>{{ form.sugar }}{{ form.sugar.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.polyols.label_tag }}</th>
+        <td>{{ form.polyols }}{{ form.polyols.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.starch.label_tag }}</th>
+        <td>{{ form.starch }}{{ form.starch.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.fibre.label_tag }}</th>
+        <td>{{ form.fibre }}{{ form.fibre.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.protein.label_tag }}</th>
+        <td>{{ form.protein }}{{ form.protein.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.salt.label_tag }}</th>
+        <td>{{ form.salt }}{{ form.salt.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.orgacid.label_tag }}</th>
+        <td>{{ form.orgacid }}{{ form.orgacid.errors }}</td>
+      </tr>
+    </table>
+    <input type="submit" name="update" value="Update">
+</form>
+{% endblock %}

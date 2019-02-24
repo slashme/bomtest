@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path, include, re_path
 
 from django.contrib import admin
 
@@ -6,15 +6,13 @@ admin.autodiscover()
 
 import hello.views
 
-# To add a new path, first import the app:
-# import blog
-#
-# Then add the new path:
-# path('blog/', blog.urls, name="blog")
-#
-# Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
-
 urlpatterns = [
     path("", hello.views.index, name="index"),
     path("admin/", admin.site.urls),
+    re_path(r'^ingredients/([\w-]+)$', hello.views.IngredientList.as_view(), name='IngredientList'),
+    re_path(r'^ingredient/(?P<ingredientid>[0-9]+)$', hello.views.ingredientdetail, name='ingredientdetail'),
+    re_path(r'^ingredient/(?P<ingredientid>[0-9]+)/$', hello.views.ingredientdetail, name='ingredientdetail'),
+    re_path(r'^ingredient/(?P<pk>[0-9]+)/edit', hello.views.IngredientUpdate.as_view(), name='update_ingredient'),
+    re_path(r'^ingredient/(?P<pk>[0-9]+)/delete', hello.views.IngredientDelete.as_view(success_url="/"), name='delete_ingredient'),
+    re_path(r'^ingredient/create', hello.views.IngredientCreate.as_view(), name='create_ingredient'),
 ]
