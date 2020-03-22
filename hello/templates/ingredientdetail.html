@@ -9,22 +9,22 @@
 	<h3>{{ ingredient.vendor }}</h3>
 	<h4><a href="/ingredient/{{ingredient.id}}/edit">Edit ingredient details</a></h4>
 	<h4 style="color:red"><a href="/ingredient/{{ingredient.id}}/delete">Delete ingredient</a></h4>
-	<table>
-	  <tr><td style="padding-right: 0.2em">Vendor             </td><td>{{ ingredient.vendor    }} </td></tr>
-	  <tr><td>Moisture           </td><td>{{ ingredient.moisture  }} </td></tr>
-	  <tr><td>Fat                </td><td>{{ ingredient.fat       }} </td></tr>
-	  <tr><td>Saturated fat      </td><td>{{ ingredient.satfat    }} </td></tr>
-	  <tr><td style="padding-right: 0.2em">Monounsaurated fat </td><td>{{ ingredient.monounsat }} </td></tr>
-	  <tr><td>Polyunsaurated fat </td><td>{{ ingredient.polyunsat }} </td></tr>
-	  <tr><td>Carbohydrates      </td><td>{{ ingredient.carbs     }} </td></tr>
-	  <tr><td>Sugar              </td><td>{{ ingredient.sugar     }} </td></tr>
-	  <tr><td>Polyols            </td><td>{{ ingredient.polyols   }} </td></tr>
-	  <tr><td>Starch             </td><td>{{ ingredient.starch    }} </td></tr>
-	  <tr><td>Fibre              </td><td>{{ ingredient.fibre     }} </td></tr>
-	  <tr><td>Protein            </td><td>{{ ingredient.protein   }} </td></tr>
-	  <tr><td>Salt               </td><td>{{ ingredient.salt      }} </td></tr>
-	  <tr><td>Organic acids      </td><td>{{ ingredient.orgacid   }} </td></tr>
-	  <tr><td>Energy [kJ/100 g]  </td><td>{{ ingredient.energy    }} </td></tr>
+	<table style="padding-right: 0.2em">
+	  <tr><td id=tdpr>Vendor             </td><td>{%if ingredient.vendor    == None %}{{""}}{%else%}{{ingredient.vendor    }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Moisture           </td><td>{%if ingredient.moisture  == None %}{{""}}{%else%}{{ingredient.moisture  }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Fat                </td><td>{%if ingredient.fat       == None %}{{""}}{%else%}{{ingredient.fat       }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Saturated fat      </td><td>{%if ingredient.satfat    == None %}{{""}}{%else%}{{ingredient.satfat    }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Monounsaurated fat </td><td>{%if ingredient.monounsat == None %}{{""}}{%else%}{{ingredient.monounsat }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Polyunsaurated fat </td><td>{%if ingredient.polyunsat == None %}{{""}}{%else%}{{ingredient.polyunsat }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Carbohydrates      </td><td>{%if ingredient.carbs     == None %}{{""}}{%else%}{{ingredient.carbs     }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Sugar              </td><td>{%if ingredient.sugar     == None %}{{""}}{%else%}{{ingredient.sugar     }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Polyols            </td><td>{%if ingredient.polyols   == None %}{{""}}{%else%}{{ingredient.polyols   }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Starch             </td><td>{%if ingredient.starch    == None %}{{""}}{%else%}{{ingredient.starch    }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Fibre              </td><td>{%if ingredient.fibre     == None %}{{""}}{%else%}{{ingredient.fibre     }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Protein            </td><td>{%if ingredient.protein   == None %}{{""}}{%else%}{{ingredient.protein   }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Salt               </td><td>{%if ingredient.salt      == None %}{{""}}{%else%}{{ingredient.salt      }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Organic acids      </td><td>{%if ingredient.orgacid   == None %}{{""}}{%else%}{{ingredient.orgacid   }}{%endif%}</td></tr>
+	  <tr><td id=tdpr>Energy [kJ/100 g]  </td><td>{%if ingredient.energy    == None %}{{""}}{%else%}{{ingredient.energy    }}{%endif%}</td></tr>
 	</table>
 </div>
 {% endblock %}
