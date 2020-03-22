@@ -45,7 +45,7 @@ class IngredientForm(ModelForm):
         fields = [ 'name', 'description', 'vendor', 'moisture', 'fat', 'satfat', 'monounsat', 'polyunsat', 'carbs', 'sugar', 'polyols', 'starch', 'fibre', 'protein', 'salt', 'orgacid', 'energy']
 
 class Formula(models.Model):
-    #A formula, can contain materials and other subformulas.
+    #A formula, can contain ingredients and other subformulas.
     def __str__(self):
         return self.name
     class Meta:
@@ -59,3 +59,11 @@ class FormulaForm(ModelForm):
     class Meta:
         model = Formula
         fields = [ 'name', 'description']
+
+class FormulaIngredient(models.Model):
+    #An item in a formula
+    def __str__(self):
+        return f'{self.ingredient.name}'
+    formula = models.ForeignKey(Formula, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.PROTECT)
+    quantity = models.FloatField('fraction of ingredient in recipe', null=False, blank=False)
