@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+	<h1><a href=/>Back to main page</a></h1>
+	<h2>{{ formula.name }}</h2>
+	<h3>{{ formula.description }}</h2>
+	<h4><a href="/formula/{{formula.id}}/edit">Edit formula details</a></h4>
+	<h4 style="color:red"><a href="/formula/{{formula.id}}/delete">Delete formula</a></h4>
+</div>
+{% endblock %}

@@ -11,13 +11,14 @@ from django.db import models, transaction
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Ingredient, IngredientForm
+from .models import Ingredient, IngredientForm, Formula, FormulaForm
 
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
     return render(request, "index.html")
 
+# Ingredient view
 
 class IngredientList(ListView):
     model = Ingredient
@@ -38,4 +39,26 @@ class IngredientUpdate(UpdateView):
 class IngredientDelete(DeleteView):
     model = Ingredient
     form_class = IngredientForm
+
+# Formula view
+
+class FormulaList(ListView):
+    model = Formula
+    form_class = FormulaForm
+
+def formuladetail(request, formulaid):
+    formula = Formula.objects.filter(id=formulaid)
+    return render(request, 'formuladetail.html', {'formula': formula[0]})
+
+class FormulaCreate(CreateView):
+    model = Formula
+    form_class = FormulaForm
+
+class FormulaUpdate(UpdateView):
+    model = Formula
+    form_class = FormulaForm
+
+class FormulaDelete(DeleteView):
+    model = Formula
+    form_class = FormulaForm
 

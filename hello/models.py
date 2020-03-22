@@ -44,3 +44,18 @@ class IngredientForm(ModelForm):
         model = Ingredient
         fields = [ 'name', 'description', 'vendor', 'moisture', 'fat', 'satfat', 'monounsat', 'polyunsat', 'carbs', 'sugar', 'polyols', 'starch', 'fibre', 'protein', 'salt', 'orgacid', 'energy']
 
+class Formula(models.Model):
+    #A formula, can contain materials and other subformulas.
+    def __str__(self):
+        return self.name
+    class Meta:
+        ordering = ["name"]
+    def get_absolute_url(self):
+        return "/formula/%i/" % self.id
+    name        = models.CharField('Formula name', max_length=100)
+    description = models.TextField('Long description of the formula')
+
+class FormulaForm(ModelForm):
+    class Meta:
+        model = Formula
+        fields = [ 'name', 'description']

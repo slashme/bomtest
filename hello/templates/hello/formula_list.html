@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<script src={% static 'sorttable.js' %}></script>
+<div class="container">
+
+<h2><a href=/>Back to main page</a></h2>
+<h4><a href="/formula/create">Add a formula</a></h4>
+<table class="sortable">
+  <tr>
+    <th>Formula name</th>
+    <th>Description</th>
+  </tr>
+  {% for formula in object_list %}
+  <tr>
+    <td><a href=/formula/{{formula.id}}>{{ formula.name }}</a></td> 
+    <td><a href=/formula/{{formula.id}}/edit>[Edit]</a></td> 
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+{% endblock %}

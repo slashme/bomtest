@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+
+<h1><a href=/>Back to main page</a></h1>
+<h2>Update formula</h2>
+<h4 style="color:red"><a href="/formula/{{formula.id}}/delete">Delete formula</a></h4>
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      <tr class="fieldWrapper">
+        <th>{{ form.name.label_tag }}</th>
+        <td colspan="2">{{ form.name }}{{ form.name.errors }}</td>
+      </tr>
+      <tr class="fieldWrapper">
+        <th>{{ form.description.label_tag }}</th>
+        <td colspan="2">{{ form.description }}{{ form.description.errors }}</td>
+      </tr>
+    </table>
+    <input type="submit" name="update" value="Update">
+</form>
+{% endblock %}
